@@ -1,0 +1,10 @@
+<mat-card class="nav-bar-container">
+  <mat-action-list>
+    <span><button mat-list-item routerLink="/contact/home">Home</button></span>
+    <span *ngFor="let category of categoryList">
+      <button mat-list-item (click)="onRouteClick(category.categoryId)">
+        {{ category.categoryName | titlecase }}
+      </button>
+    </span>
+  </mat-action-list>
+</mat-card>

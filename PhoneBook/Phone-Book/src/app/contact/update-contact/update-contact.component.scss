@@ -1,0 +1,20 @@
+div {
+  form {
+    mat-form-field {
+      width: 100%;
+    }
+    div {
+      &:has(> button) {
+        display: flex;
+        button {
+          color: #ffffff;
+          background-color: #008000;
+        }
+        .btn-clear {
+          margin-left: 20px;
+          background-color: #e60073;
+        }
+      }
+    }
+  }
+}

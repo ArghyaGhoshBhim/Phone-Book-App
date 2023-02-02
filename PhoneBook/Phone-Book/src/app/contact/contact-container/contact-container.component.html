@@ -1,0 +1,51 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <app-navigation-contact
+          class="normal-nav"
+          [categoryList]="categoryList"
+        ></app-navigation-contact>
+        <mat-expansion-panel
+          class="expansion-panel"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              Menu {{ panelOpenState ? "open" : "closed" }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <app-navigation-contact
+            [categoryList]="categoryList"
+          ></app-navigation-contact>
+        </mat-expansion-panel>
+      </div>
+      <div class="col-md-9">
+        <p>
+          <mat-toolbar class="top-bar">
+            <button
+              mat-raised-button
+              color="primary"
+              routerLink="/contact/add-contact"
+            >
+              Add Contact
+            </button>
+            <mat-form-field class="search-bar">
+              <input
+                matInput
+                placeholder="Search"
+                name="search"
+                [(ngModel)]="search"
+                (keyup)="onSearch()"
+              />
+            </mat-form-field>
+          </mat-toolbar>
+        </p>
+        <div class="router-outlet-container">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

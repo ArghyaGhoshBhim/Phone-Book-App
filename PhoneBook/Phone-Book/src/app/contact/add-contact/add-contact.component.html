@@ -1,0 +1,97 @@
+<div class="botstrap-wrapper">
+  <form class="row" [formGroup]="contactForm" (ngSubmit)="addContact()">
+    <div class="col-md-6">
+      <div>
+        <p *ngIf="!isFirstNameControlerRequireValid()" class="error-container">
+          *first name is required
+        </p>
+        <p
+          *ngIf="!isFirstNameControlerMinLengthValid()"
+          class="error-container"
+        >
+          *min length is 3
+        </p>
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="Placeholder"
+            formControlName="firstName"
+          />
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="lastName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date Of Birth</mat-label>
+        <input
+          matInput
+          mask="d0/M0/0000"
+          placeholder="Ex. 28/05/2021"
+          formControlName="dob"
+        />
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <p
+        *ngIf="!isPrimaryNumberControlerRequireValid()"
+        class="error-container"
+      >
+        *primary number is required
+      </p>
+      <p *ngIf="!isPrimaryNumberControlerLengthValid()" class="error-container">
+        *primary number length is 10
+      </p>
+      <mat-form-field appearance="outline">
+        <mat-label>Primary Number</mat-label>
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="primaryNumber"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Secondary Number</mat-label>
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="secondaryNumber"
+        />
+      </mat-form-field>
+
+      <p *ngIf="!isCategoryControlerRequireValid()" class="error-container">
+        *category is required
+      </p>
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+          <mat-option
+            *ngFor="let category of categoryList"
+            [value]="category.categoryId"
+            >{{ category.categoryName }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button type="submit">Submit</button>
+        <button
+          mat-raised-button
+          class="btn-clear"
+          type="button"
+          (click)="clearFrom()"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

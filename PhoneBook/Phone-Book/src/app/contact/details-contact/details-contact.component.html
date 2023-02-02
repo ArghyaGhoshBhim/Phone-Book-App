@@ -1,0 +1,27 @@
+<mat-card>
+  <a (click)="gotoEdit()"><mat-icon class="edit-btn">edit</mat-icon></a>
+  <div class="profile-container">
+    <img class="profile-img" src="../../../assets/profile.png" alt="" />
+    <div class="profile-details">
+      <p>
+        Name:{{ contactDetails.firstName | titlecase }}
+        {{ contactDetails.lastName | titlecase }}
+      </p>
+      <p *ngIf="contactDetails.email">Email: {{ contactDetails.email }}</p>
+      <p *ngIf="contactDetails.dob">Date Of Birth: {{ contactDetails.dob }}</p>
+      <p>Primary Number: {{ contactDetails.primaryNumber }}</p>
+      <p *ngIf="contactDetails.secondaryNumber">
+        Secondary Number: {{ contactDetails.secondaryNumber }}
+      </p>
+      <p *ngIf="contactDetails.dob">Date of Birth: {{ contactDetails.dob }}</p>
+      <p>Category: {{ contactDetails.category.categoryName | titlecase }}</p>
+    </div>
+  </div>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="deleteSubmit(contactDetails.id)"
+  >
+    delete
+  </button>
+</mat-card>

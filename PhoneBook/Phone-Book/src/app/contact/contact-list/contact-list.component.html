@@ -1,0 +1,70 @@
+<table class="table" *ngIf="contactList?.length">
+  <thead>
+    <tr>
+      <th class="no-container">No</th>
+      <th>First Name</th>
+      <th class="last-name">Last Name</th>
+      <th>Primary Number</th>
+      <th class="email-container">Email</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contactList; let val = index">
+      <td class="no-container" data-lable="No">{{ val + 1 }}</td>
+      <td class="view-btn" (click)="viewProfile(contact.id)">
+        {{ contact.firstName | titlecase }}
+      </td>
+
+      <td class="last-name" (click)="viewProfile(contact.id)">
+        {{ contact.lastName }}
+      </td>
+      <td (click)="viewProfile(contact.id)">
+        {{ contact.primaryNumber }}
+      </td>
+      <td
+        class="email-container"
+        data-lable="Email"
+        (click)="viewProfile(contact.id)"
+      >
+        {{ contact.email }}
+      </td>
+      <td data-lable="Delete">
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="deleteSubmit(contact.id)"
+        >
+          delete
+        </button>
+        <button
+          mat-stroked-button
+          (click)="gotoEdit(contact.id)"
+          class="td-update-btn"
+        >
+          update
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="pagination-ontainer" *ngIf="pageSize < totalCount">
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="previousClick()"
+    [disabled]="prevDisable"
+  >
+    Previous</button
+  ><button
+    mat-flat-button
+    color="primary"
+    class="next-btn"
+    (click)="nextClick()"
+    [disabled]="nextDisable"
+  >
+    Next
+  </button>
+</div>
+<div *ngIf="contactList?.length == 0">Record Not Found</div>

@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Add Category</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field class="example-full-width">
+      <mat-label>Category Name</mat-label>
+      <input
+        matInput
+        placeholder="Category name"
+        [(ngModel)]="categoryName"
+        name="categoryName"
+      />
+    </mat-form-field>
+    <div>
+      <button
+        mat-flat-button
+        mat-dialog-close
+        color="primary"
+        type="submit"
+        (click)="addCategory()"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

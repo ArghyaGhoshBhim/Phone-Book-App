@@ -1,0 +1,40 @@
+.main-container {
+  height: 88.7vh;
+  display: flex;
+  flex-direction: column;
+  .outlet-container {
+    margin-bottom: 25px;
+  }
+  .footer-container {
+    margin-top: auto;
+  }
+}
+.top-nav-bar {
+  width: 100vw;
+  background-color: #3f51b5;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 4px;
+  div {
+    margin-left: 2rem;
+  }
+  .top-nav-link {
+    margin-left: auto;
+    font-size: medium;
+    a {
+      margin-right: 2rem;
+      cursor: pointer;
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}
+.top-bar {
+  display: flex;
+  height: 110px;
+  margin-top: 15px;
+}

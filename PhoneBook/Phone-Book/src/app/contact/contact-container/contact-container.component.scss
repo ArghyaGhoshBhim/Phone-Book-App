@@ -1,0 +1,20 @@
+.top-bar {
+  display: flex;
+  height: 100px;
+  margin-top: 15px;
+  .search-bar {
+    margin-left: auto;
+  }
+}
+
+.expansion-panel {
+  display: none;
+}
+@media (max-width: 770px) {
+  .normal-nav {
+    display: none;
+  }
+  .expansion-panel {
+    display: block;
+  }
+}

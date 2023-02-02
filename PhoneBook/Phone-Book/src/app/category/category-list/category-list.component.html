@@ -1,0 +1,23 @@
+<table *ngIf="categoryList?.length">
+  <thead>
+    <th>No</th>
+    <th>Category Name</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categoryList; let no = index">
+      <td>{{ no + 1 }}</td>
+      <td>{{ category.categoryName }}</td>
+      <td>
+        <button
+          mat-button
+          color="warn"
+          (click)="deleteCategory(category.categoryId)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="categoryList?.length == 0">Record Not Found</div>
